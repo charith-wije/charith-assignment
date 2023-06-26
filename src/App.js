@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [value, setValue] = useState("");
+  const [value1, Setvalue1] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        type="email"
+        value={value}
+        placeholder="Enter Email"
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+
+      <input
+        type="number"
+        value={value1}
+        placeholder="Enter Number"
+        onChange={(e) => {
+          Setvalue1(e.target.value);
+        }}
+      />
+      {value1 % 2 === 0 ? (
+        <div>number is not odd</div>
+      ) : (
+        <div>number is odd</div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
